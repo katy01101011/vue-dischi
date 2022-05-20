@@ -23,7 +23,6 @@ export default {
 
 .discCard {
   background-color: $secondary-color;
-  text-align: center;
   border-radius: 12px;
   cursor: pointer;
 
@@ -64,12 +63,14 @@ export default {
   h3 {
     color: $text-primary-color;
     font-size: 1.1rem;
+    font-weight: 700;
   }
 
   p {
     color: $text-secondary-color;
     line-height: 1.3rem;
     margin: 0;
+    font-weight: 400;
   }
 }
 </style>

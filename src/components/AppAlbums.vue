@@ -14,6 +14,9 @@
           :disc="item"
         />
       </div>
+      <div class="found text-center">
+        <p>Ho trovato {{ albums.length }} album</p>
+      </div>
     </div>
   </main>
 </template>
@@ -58,6 +61,14 @@ main {
   .container {
     .row {
       margin: auto;
+    }
+
+    .found {
+      color: $text-primary-color;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translate(-50%);
     }
   }
 }
