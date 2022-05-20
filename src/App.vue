@@ -5,7 +5,9 @@
         <img class="mx-5" src="./assets/logo.svg" alt="" />
       </a>
       <nav>
-        <AppSearch />
+        <AppSearch v-if="clicked" />
+        <img @click="isClicked" v-if="clicked === false" class="searchIcon mx-5" src="./assets/search.svg" alt="" />
+        <img @click="isClicked" v-else class="backIcon mx-5" src="./assets/back.svg" alt="" />
       </nav>
     </header>
     <AppAlbums />
@@ -18,10 +20,23 @@ import AppSearch from "./components/AppSearch.vue";
 
 export default {
   name: "App",
+
+  data: function() {
+    return {
+      clicked: false,
+    }
+  },
+
   components: {
     AppSearch,
     AppAlbums,
   },
+
+  methods: {
+    isClicked: function() {
+      this.clicked = !this.clicked;
+    }
+  }
 };
 </script>
 
@@ -46,6 +61,16 @@ body {
 
     img {
       height: $logo-height;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 3rem;
+        cursor: pointer;
+      }
     }
   }
 }

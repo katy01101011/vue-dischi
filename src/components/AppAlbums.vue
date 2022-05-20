@@ -38,6 +38,7 @@ export default {
   data: function () {
     return {
       albums: [],
+      genres: this.getGenres(),
       loading: true,
     };
   },
@@ -49,6 +50,11 @@ export default {
         this.loading = false;
       }
     )
+  },
+  methods: {
+    getGenres: function() {
+
+    }
   }
 }
 </script>

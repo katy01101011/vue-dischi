@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-5">
+  <div>
     <select class="form-select" aria-label="Default select example">
       <option value="1">1</option>
       <option value="2">2</option>
