@@ -1,5 +1,7 @@
 <template>
-  <main>Loading</main>
+  <div>
+    <h1>Loading</h1>
+  </div>
 </template>
 
 <script>
@@ -9,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
+h1 {
   background-color: red;
   color: white;
   font-size: 5rem;

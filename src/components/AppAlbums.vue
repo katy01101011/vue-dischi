@@ -1,11 +1,14 @@
 <template>
   <main>
-    <div v-if="loading" class="container">
-      <AppLoading />
-    </div>
+    <AppLoading v-if="loading" />
+
     <div v-else class="container">
       <div
-        class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 flex-wrap justify-content-between"
+        class="
+          row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6
+          flex-wrap
+          justify-content-between
+        "
       >
         <AlbumsDisc
           class="p-3"
@@ -22,7 +25,7 @@
 </template>
 
 <script>
-import AppLoading from "./AlbumsDisc.vue";
+import AppLoading from "./AppLoading.vue";
 import AlbumsDisc from "./AlbumsDisc.vue";
 import axios from "axios";
 
@@ -44,9 +47,10 @@ export default {
       .then((resp) => {
         this.albums = resp.data.response;
         this.loading = false;
-      });
-  },
-};
+      }
+    )
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -67,12 +71,13 @@ main {
       width: 100%;
       height: $foundNumber;
       line-height: $foundNumber;
-      background-color: $primary-color;
+      background-color: $secondary-color;
       color: $text-primary-color;
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translate(-50%);
+      box-shadow: 0px -5px 18px 1px #000000;
     }
   }
 }
