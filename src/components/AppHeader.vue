@@ -13,14 +13,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../style/variables.scss";
+
 header {
   width: 100%;
-  height: 100px;
-  background-color: gray;
-  line-height: 100px;
+  height: $header-height;
+  background-color: $secondary-color;
+  line-height: $header-height;
 
   img {
-    height: 80px;
+    height: $logo-height;
   }
 }
 </style>
