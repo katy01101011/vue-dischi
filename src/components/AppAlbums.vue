@@ -64,9 +64,13 @@ main {
     }
 
     .found {
+      width: 100%;
+      height: $foundNumber;
+      line-height: $foundNumber;
+      background-color: $primary-color;
       color: $text-primary-color;
       position: absolute;
-      bottom: 2rem;
+      bottom: 0;
       left: 50%;
       transform: translate(-50%);
     }

@@ -56,6 +56,7 @@ export default {
       border-radius: 50%;
       display: none;
       box-shadow: 1px 3px 8px 0px rgba($color: #000000, $alpha: 0.7);
+      padding-left: 0.25rem;
       cursor: auto;
     }
   }
