@@ -20,4 +20,10 @@ export default {
 
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap.scss";
+@import "~@fontsource/montserrat/400.css";
+@import "~@fontsource/montserrat/700.css";
+
+body {
+  font-family: "Montserrat", Helvetica, sans-serif;
+}
 </style>
