@@ -31,9 +31,10 @@ import axios from "axios";
 
 export default {
   name: "AppAlbums",
-    props: {
+  props: {
     albumsGenres: Array,
     albumsAuthors: Array,
+    searchKey: String,
   },
   components: {
     AppLoading,
