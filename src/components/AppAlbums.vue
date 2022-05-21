@@ -35,10 +35,10 @@ export default {
     AppLoading,
     AlbumsDisc,
   },
-  data: function () {
+  data: function() {
     return {
       albums: [],
-      genres: this.getGenres(),
+      // genres: this.getGenres(albums),
       loading: true,
     };
   },
@@ -48,14 +48,18 @@ export default {
       .then((resp) => {
         this.albums = resp.data.response;
         this.loading = false;
+        console.log();
       }
     )
   },
-  methods: {
-    getGenres: function() {
-
-    }
-  }
+  // methods: {
+  //   getGenres: function(array) {
+  //     const newGenres = [];
+  //     for (let i = 0; i < array.length; i++) {
+  //       console.log('ciao');
+  //     }
+  //   }
+  // }
 }
 </script>
 
@@ -77,13 +81,13 @@ main {
       width: 100%;
       height: $foundNumber;
       line-height: $foundNumber;
-      background-color: $secondary-color;
+      background-color: $primary-color;
       color: $text-primary-color;
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translate(-50%);
-      box-shadow: 0px -5px 18px 1px #000000;
+      box-shadow: 0px -15px 18px 1px #151515;
     }
   }
 }
