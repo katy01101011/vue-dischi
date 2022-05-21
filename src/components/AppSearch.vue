@@ -1,8 +1,7 @@
 <template>
   <div>
     <select class="form-select" aria-label="Default select example">
-      <option value="1" v-for="(genre, index) in genres" :key="index">{{ genre }}</option>
-
+      <option :value="albumInfo[index]" v-for="(array, index) in albumInfo" :key="index">{{ albumInfo[index] }}</option>
     </select>
   </div>
 </template>
@@ -11,8 +10,8 @@
 export default {
   name: "AppSearch",
   props: {
-    genres: Array
-  }
+    albumInfo: Array
+  },
 };
 </script>
 

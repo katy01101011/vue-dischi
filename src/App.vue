@@ -5,12 +5,14 @@
         <img class="mx-5" src="./assets/logo.svg" alt="" />
       </a>
       <nav>
-        <AppSearch v-if="clicked" :genres="genres" />
+        <template v-if="clicked">
+          <AppSearch v-for="(arrays, index) in selectData" :key="index" :albumInfo="arrays"/>
+        </template>
         <img @click="isClicked" v-if="clicked === false" class="searchIcon mx-5" src="./assets/search.svg" alt="" />
         <img @click="isClicked" v-else class="backIcon mx-5" src="./assets/back.svg" alt="" />
       </nav>
     </header>
-    <AppAlbums />
+    <AppAlbums @albumsGenres="selectGenres" @albumsAuthors="selectAuthors" />
   </div>
 </template>
 
@@ -24,9 +26,7 @@ export default {
   data: function() {
     return {
       clicked: false,
-      genres: [
-        'Tutti', 'Pop', 'Rock', 'Jazz', 'Metal'
-      ]
+      selectData: [],
     }
   },
 
@@ -38,8 +38,14 @@ export default {
   methods: {
     isClicked: function() {
       this.clicked = !this.clicked;
-      console.log(AppAlbums);
     },
+    selectGenres(value) {
+      this.selectData.push(value);
+    },
+    selectAuthors(value) {
+      this.selectData.push(value);
+      console.log(this.selectData);
+    }
   }
 };
 </script>

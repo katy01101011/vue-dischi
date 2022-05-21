@@ -31,6 +31,10 @@ import axios from "axios";
 
 export default {
   name: "AppAlbums",
+    props: {
+    albumsGenres: Array,
+    albumsAuthors: Array,
+  },
   components: {
     AppLoading,
     AlbumsDisc,
@@ -38,7 +42,8 @@ export default {
   data: function() {
     return {
       albums: [],
-      // genres: this.getGenres(albums),
+      genres: [],
+      authors: [],
       loading: true,
     };
   },
@@ -47,19 +52,20 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((resp) => {
         this.albums = resp.data.response;
+        for (let i = 0; i < this.albums.length; i++) {
+          if (!this.genres.includes(this.albums[i].genre)) {
+            this.genres.push(this.albums[i].genre)
+          }
+          if (!this.authors.includes(this.albums[i].author)) {
+            this.authors.push(this.albums[i].author)
+          }
+        }
+        this.$emit('albumsGenres', this.genres);
+        this.$emit('albumsAuthors', this.authors);
         this.loading = false;
-        console.log();
       }
     )
   },
-  // methods: {
-  //   getGenres: function(array) {
-  //     const newGenres = [];
-  //     for (let i = 0; i < array.length; i++) {
-  //       console.log('ciao');
-  //     }
-  //   }
-  // }
 }
 </script>
 
