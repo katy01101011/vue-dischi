@@ -18,7 +18,7 @@
         />
       </div>
       <div class="found text-center">
-        <p>Ho trovato {{ albums.length }} album</p>
+        <p>Ho trovato {{ albums.length }} {{ searchKey }} album</p>
       </div>
     </div>
   </main>

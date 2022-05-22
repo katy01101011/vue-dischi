@@ -6,13 +6,26 @@
       </a>
       <nav>
         <template v-if="clicked">
-          <AppSearch v-for="(arrays, index) in selectData" :key="index" :albumInfo="arrays" @search="saveWord($event)" />
+          <AppSearch v-for="(arrays, index) in selectData"
+          :key="index"
+          :albumInfo="arrays"
+          @search="saveWord($event)"
+          :searchKey="searchKey" />
         </template>
-        <img @click="isClicked" v-if="clicked === false" class="searchIcon mx-5" src="./assets/search.svg" alt="" />
-        <img @click="isClicked" v-else class="backIcon mx-5" src="./assets/back.svg" alt="" />
+        <img @click="isClicked"
+        v-if="clicked === false"
+        class="searchIcon mx-5"
+        src="./assets/search.svg"
+        alt="" />
+        <img @click="isClicked"
+        v-else class="backIcon mx-5"
+        src="./assets/back.svg"
+        alt="" />
       </nav>
     </header>
-    <AppAlbums @albumsGenres="selectGenres" @albumsAuthors="selectAuthors" @searchKey="this.searchKey" />
+    <AppAlbums @albumsGenres="selectGenres"
+    @albumsAuthors="selectAuthors" 
+    @searchKey="this.searchKey" />
   </div>
 </template>
 
@@ -27,7 +40,9 @@ export default {
     return {
       clicked: false,
       selectData: [],
-      searchKey: "",
+      searchGenre: "",
+      searchAuthor: "",
+      searchKey: [],
     }
   },
 
@@ -48,7 +63,13 @@ export default {
       console.log(this.selectData);
     },
     saveWord: function(myKey) {
-      this.searchKey = myKey;
+      if (this.selectData[0].includes(myKey)) {
+        this.searchGenre = myKey
+      } else {
+        this.searchAuthor = myKey
+      }
+      console.log(this.searchGenre);
+      console.log(this.searchAuthor);
     },
   }
 };
