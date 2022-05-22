@@ -12,13 +12,13 @@
       >
         <AlbumsDisc
           class="p-3"
-          v-for="(item, index) in albums"
+          v-for="(item, index) in filteredDiscs"
           :key="index"
           :disc="item"
         />
       </div>
       <div class="found text-center">
-        <p>Ho trovato {{ albums.length }} album</p>
+        <p>Ho trovato {{ filteredDiscs.length }} album</p>
       </div>
     </div>
   </main>
@@ -49,6 +49,21 @@ export default {
       authors: [],
       loading: true,
     };
+  },
+
+  computed: {
+    filteredDiscs: function () {
+      const genreKey = this.genreKey;
+      const authorKey = this.authorKey;
+      let filteredAlbums = this.albums.filter((item) => {
+        return item.genre.includes(genreKey);
+      });
+      let veryFilteredAlbums = filteredAlbums.filter((item) => {
+        return item.author.includes(authorKey);
+      });
+      console.log(filteredAlbums);
+      return veryFilteredAlbums;
+    },
   },
 
   created() {
@@ -97,7 +112,8 @@ main {
       bottom: 0;
       left: 50%;
       transform: translate(-50%);
-      box-shadow: 0px -15px 18px 1px #151515;
+      box-shadow: 0px -20px 20px 1px #151515;
+      font-size: 1.7rem;
     }
   }
 }
