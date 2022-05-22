@@ -25,7 +25,9 @@
     </header>
     <AppAlbums @albumsGenres="selectGenres"
     @albumsAuthors="selectAuthors" 
-    @searchKey="this.searchKey" />
+    :genreKey="this.searchGenre"
+    :authorKey="this.searchAuthor"
+    />
   </div>
 </template>
 
@@ -40,9 +42,9 @@ export default {
     return {
       clicked: false,
       selectData: [],
+      searchKey: [],
       searchGenre: "",
       searchAuthor: "",
-      searchKey: [],
     }
   },
 
@@ -105,6 +107,10 @@ body {
       img {
         width: 3rem;
         cursor: pointer;
+
+        &:hover {
+          filter: invert(20%);
+        }
       }
     }
   }

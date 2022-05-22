@@ -19,4 +19,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "../style/variables.scss";
+
+  select {
+    width: $select-width;
+    height: $select-height;
+    border-radius: calc($select-height / 2);
+    padding-left: 2rem;
+  }
+</style>

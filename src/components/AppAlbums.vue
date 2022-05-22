@@ -18,7 +18,7 @@
         />
       </div>
       <div class="found text-center">
-        <p>Ho trovato {{ albums.length }} {{ searchKey }} album</p>
+        <p>Ho trovato {{ albums.length }} album</p>
       </div>
     </div>
   </main>
@@ -35,6 +35,8 @@ export default {
     albumsGenres: Array,
     albumsAuthors: Array,
     searchKey: String,
+    genreKey: String,
+    authorKey: String,
   },
   components: {
     AppLoading,
@@ -48,6 +50,7 @@ export default {
       loading: true,
     };
   },
+
   created() {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")
